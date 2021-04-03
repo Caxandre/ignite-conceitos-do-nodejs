@@ -11,6 +11,7 @@ describe('Users', () => {
         name: 'John Doe',
         username: 'johndoe'
       })
+      console.log(response.body)
     expect(201);
 
     expect(validate(response.body.id)).toBe(true);

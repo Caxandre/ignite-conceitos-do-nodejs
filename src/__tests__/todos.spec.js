@@ -4,6 +4,7 @@ const { validate } = require('uuid');
 const app = require('../');
 
 describe('Todos', () => {
+
   it("should be able to list all user's todo", async () => {
     const userResponse = await request(app)
       .post('/users')
@@ -51,7 +52,6 @@ describe('Todos', () => {
       })
       .set('username', userResponse.body.username)
       .expect(201);
-
     expect(response.body).toMatchObject({
       title: 'test todo',
       deadline: todoDate.toISOString(),
@@ -143,6 +143,7 @@ describe('Todos', () => {
       done: true
     });
   });
+
 
   it('should not be able to mark a non existing todo as done', async () => {
     const userResponse = await request(app)
